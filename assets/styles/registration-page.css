@@ -1,0 +1,34 @@
+.sign-up-card {
+	width: 60%;
+	padding-block: 30px;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px var(--primary-pruple);
+	background-color: #fff;
+}
+
+.sign-up-card .sign-up-header {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.sign-up-card input:focus {
+	outline: none;
+
+	box-shadow: 0 0 5px var(--secondary-purple);
+}
+
+.sign-up-card .custom-btn {
+	background-color: var(--primary-pruple);
+}
+
+.sign-up-card .custom-btn:hover {
+	background-color: var(--secondary-purple);
+}
+
+/* .sign-up-card .login-note {
+} */
+
+.sign-up-card .login-note a {
+	text-decoration: none;
+	color: var(--secondary-purple);
+}
