@@ -1,3 +1,10 @@
+:root {
+	--primary-pruple: #6938ef;
+	--secondary-purple: #7f33f4;
+	--main-paragraph: black;
+	--secondary-paragraph: #f2f5f4;
+}
+
 body,
 h1,
 h2,
