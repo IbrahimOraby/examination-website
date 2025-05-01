@@ -8,10 +8,12 @@ h1 {
     padding: 15px;
 }
 
-.login-card {
-    /* width: 800px;
-    height: 500px; */
+.login-card-container {
+    background-image: url(../imgs/new.jpg);
+    background-size: cover;
+}
 
+.login-card {
     width: 60%;
     height: 80%;
     padding: 30px;
@@ -22,6 +24,7 @@ h1 {
 
 .btn {
     background-color: var(--primary-pruple);
+
 }
 
 .btn:hover {
@@ -43,4 +46,8 @@ input:focus {
     font-size: 12px;
     margin-top: 5px;
     display: none;
+}
+
+.resgister {
+    padding: 10px;
 }
