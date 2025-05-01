@@ -20,7 +20,7 @@
 					action=""
 					class="d-flex flex-column justify-content-center align-items-center"
 				>
-					<h1 class="sign-up-header">Sign Up</h1>
+					<h1 class="sign-up-header mb-3">Sign Up</h1>
 					<div class="mb-3">
 						<label for="fname" class="form-label">First Name</label>
 						<input
@@ -82,20 +82,20 @@
 						/>
 						<div class="error-message" id="re-enter-password-error"></div>
 					</div>
-					<div class="mb-3 login-note">
+					<button type="submit" class="mb-3 btn btn-primary custom-btn">
+						Sign Up
+					</button>
+					<div class="login-note">
 						<div id="emailHelp" class="form-text">
 							Already have an account?
 							<a href="../index.html"><span>Login</span></a>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary custom-btn">
-						Sign Up
-					</button>
 				</form>
 			</div>
 		</div>
 
-		<script src="./assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-		<script src="../assets/js/registration-page.js"></script>
+		<script src="../assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+		<script type="module" src="../assets/js/registration-page.js"></script>
 	</body>
 </html>
