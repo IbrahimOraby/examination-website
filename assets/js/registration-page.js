@@ -1,3 +1,5 @@
+import { userSignup } from "../services/auth_service.js";
+
 const form = document.querySelector("form");
 const fname = document.querySelector("#fname");
 const lname = document.querySelector("#lname");
@@ -7,13 +9,14 @@ const reEnterPassword = document.querySelector("#re-enter-password");
 
 form.addEventListener("submit", handleFormSubmit);
 
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
 	e.preventDefault();
 	const nameRegEx = /^[A-Za-z]{2,}$/;
 	const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	const passwordRegEx = /^[A-Za-z0-9]{8,}$/;
 	const userFisrtName = fname.value.trim();
 	const userLastName = lname.value.trim();
+	const userName = `${userFisrtName} ${userLastName}`;
 	const userEmail = email.value.trim();
 	const userPassword = password.value;
 	const userReEnterPassword = reEnterPassword.value;
@@ -42,5 +45,12 @@ function handleFormSubmit(e) {
 		throw new Error("It should match the password you entered.");
 	}
 
-	window.location.replace("../../index.html");
+	try {
+		const userCredential = await userSignup(userName, userEmail, userPassword);
+		console.log("User signed up:", userCredential);
+		alert("You signed up successfully");
+		window.location.replace("../../index.html");
+	} catch (error) {
+		console.error("Signup error:", error.message);
+	}
 }
