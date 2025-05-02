@@ -1,7 +1,17 @@
-/* body {
-    background-image: url(../imgs/new.jpg);
-    background-size: cover;
-} */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+
+    }
+
+    .oline-exam {
+        font-size: 30px;
+        text-decoration: underline;
+        text-decoration-color: var(--primary-pruple);
+        text-underline-offset: 5px;
+    }
+
+}
 
 .nav-container {
     padding: 15px;
@@ -26,7 +36,8 @@
 }
 
 .landing-img {
-    width: 400px;
+    width: 80%;
+
 }
 
 .oline-exam {
