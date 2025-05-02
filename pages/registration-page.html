@@ -13,78 +13,128 @@
 	</head>
 	<body>
 		<div
-			class="d-flex justify-content-center align-items-center vh-100 bg-light"
+			class="d-flex justify-content-center align-items-center min-vh-100 bg-light"
 		>
-			<div class="sign-up-card card justify-content-center">
+			<div class="sign-up-card my-3 my-md-0">
 				<form
 					action=""
 					class="d-flex flex-column justify-content-center align-items-center"
 				>
 					<h1 class="sign-up-header mb-3">Sign Up</h1>
-					<div class="mb-3">
-						<label for="fname" class="form-label">First Name</label>
-						<input
-							type="text"
-							class="form-control"
-							id="fname"
-							name="fname"
-							required
-						/>
-						<div class="error-message" id="fname-error"></div>
+
+					<div class="d-flex gap-3 flex-column flex-md-row">
+						<div>
+							<label for="fname" class="form-label">First Name</label>
+							<input
+								type="text"
+								class="form-control"
+								id="fname"
+								name="fname"
+								required
+							/>
+							<p class="error-message" id="fname-error">Invalid Name</p>
+						</div>
+
+						<div>
+							<label for="lname" class="form-label">Last Name</label>
+							<input
+								type="text"
+								class="form-control"
+								id="lname"
+								name="lname"
+								required
+							/>
+							<p class="error-message" id="lname-error">Invalid Name</p>
+						</div>
 					</div>
 
-					<div class="mb-3">
-						<label for="lname" class="form-label">Last Name</label>
-						<input
-							type="text"
-							class="form-control"
-							id="lname"
-							name="lname"
-							required
-						/>
-						<div class="error-message" id="lname-error"></div>
+					<div class="d-flex gap-3 flex-column flex-md-row">
+						<div>
+							<label for="email" class="form-label">Email Address</label>
+							<input
+								type="email"
+								class="form-control"
+								id="email"
+								name="email"
+								required
+							/>
+							<p class="error-message" id="email-error">Invalid Email</p>
+						</div>
+						<div class="d-flex flex-column justify-content-between">
+							<!-- <label for="role" class="form-label">Are you a:</label>
+							<select id="role" name="user-role" class="form-select" required>
+								<option value="" disabled selected>Select role</option>
+								<option value="student">Student</option>
+								<option value="teacher">Teacher</option>
+							</select>
+							<div class="error-message" id="role-error"></div> -->
+
+							<label class="form-label d-block">Are you a:</label>
+							<div>
+								<div class="form-check form-check-inline">
+									<input
+										class="form-check-input custom-form-check-input"
+										type="radio"
+										name="user-role"
+										id="student"
+										value="student"
+										required
+									/>
+									<label class="form-check-label" for="student">Student</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input
+										class="form-check-input custom-form-check-input"
+										type="radio"
+										name="user-role"
+										id="teacher"
+										value="teacher"
+									/>
+									<label class="form-check-label" for="teacher">Teacher</label>
+								</div>
+							</div>
+							<p class="error-message" id="role-error">Invalid Role</p>
+						</div>
 					</div>
 
-					<div class="mb-3">
-						<label for="email" class="form-label">Email Address</label>
-						<input
-							type="email"
-							class="form-control"
-							id="email"
-							name="email"
-							required
-						/>
-						<div class="error-message" id="email-error"></div>
+					<div class="d-flex gap-3 flex-column flex-md-row">
+						<div>
+							<label for="password" class="form-label">Password</label>
+							<input
+								type="password"
+								class="form-control"
+								name="password"
+								id="password"
+								required
+							/>
+							<p class="error-message" id="password-error">Invalid Password</p>
+						</div>
+
+						<div>
+							<label for="re-enter-password" class="form-label"
+								>Re-enter Password</label
+							>
+							<input
+								type="password"
+								class="form-control"
+								name="re-enter-password"
+								id="re-enter-password"
+								required
+							/>
+							<p class="error-message" id="re-enter-password-error">
+								Passwords must match
+							</p>
+						</div>
 					</div>
 
-					<div class="mb-3">
-						<label for="password" class="form-label">Password</label>
-						<input
-							type="password"
-							class="form-control"
-							name="password"
-							id="password"
-							required
-						/>
-						<div class="error-message" id="password-error"></div>
+					<div class="">
+						<div class="d-flex justify-content-center">
+							<button type="submit" class="btn btn-primary custom-btn">
+								Sign Up
+							</button>
+						</div>
+						<p class="error-message" id="sign-up-error">Default</p>
 					</div>
-
-					<div class="mb-3">
-						<label for="re-enter-password" class="form-label"
-							>Re-enter Password</label
-						>
-						<input
-							type="password"
-							class="form-control"
-							name="re-enter-password"
-							id="re-enter-password"
-							required
-						/>
-						<div class="error-message" id="re-enter-password-error"></div>
-					</div>
-					<button type="submit" class="mb-3 btn btn-primary custom-btn">
-						Sign Up
-					</button>
 					<div class="login-note">
 						<div id="emailHelp" class="form-text">
 							Already have an account?
