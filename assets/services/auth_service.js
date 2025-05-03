@@ -20,7 +20,7 @@ export const userSignup = async (userName, email, password) => {
 			displayName: userName
 		});
 		console.log(`${userCredential.user.email} signed up`);
-		return userCredential;
+		return userCredential.user;
 	} catch (error) {
 		throw error; // Re-throw the error if you want calling code to handle it
 	}

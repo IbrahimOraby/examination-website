@@ -1,4 +1,5 @@
 import { userSignup } from "../services/auth_service.js";
+import { createUser } from "../services/firestore_service.js";
 
 const form = document.querySelector("form");
 const fname = document.querySelector("#fname");
@@ -68,9 +69,13 @@ async function handleFormSubmit(e) {
 	if (hasError) return;
 
 	try {
+		const selectedRole = document.querySelector(
+			'input[name="user-role"]:checked'
+		);
 		const userCredential = await userSignup(userName, userEmail, userPassword);
 		console.log("User signed up:", userCredential);
 		alert("You signed up successfully");
+		await createUser(userCredential, selectedRole.value);
 		window.location.replace("../../index.html");
 	} catch (error) {
 		console.error("Signup error:", error.message);
