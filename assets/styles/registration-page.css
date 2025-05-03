@@ -1,5 +1,5 @@
 .sign-up-card-container {
-	background-image: url(../imgs/new.jpg);
+	background-image: url(../imgs/luke-chesser-eICUFSeirc0-unsplash.jpg);
 	background-size: cover;
 }
 
@@ -9,7 +9,7 @@
 	padding: 30px;
 	border-radius: 12px;
 	box-shadow: 0 4px 10px var(--primary-pruple);
-	background-color: #fff;
+	background-color: #ffffff8f;
 }
 
 .sign-up-card .sign-up-header {
@@ -25,12 +25,13 @@
 
 .sign-up-card .custom-btn {
 	background-color: var(--primary-pruple);
-	border-color: var(--secondary-pruple);
+	border: none;
+	/* border-color: var(--secondary-pruple); */
 }
 
 .sign-up-card .custom-btn:hover {
 	background-color: var(--secondary-purple);
-	border-color: var(--primary-purple);
+	/* border-color: var(--primary-purple); */
 }
 
 .sign-up-card .login-note a {
