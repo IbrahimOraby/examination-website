@@ -1,6 +1,12 @@
+.sign-up-card-container {
+	background-image: url(../imgs/new.jpg);
+	background-size: cover;
+}
+
 .sign-up-card {
 	width: 60%;
-	padding-block: 30px;
+	height: 80%;
+	padding: 30px;
 	border-radius: 12px;
 	box-shadow: 0 4px 10px var(--primary-pruple);
 	background-color: #fff;
@@ -19,16 +25,31 @@
 
 .sign-up-card .custom-btn {
 	background-color: var(--primary-pruple);
+	border-color: var(--secondary-pruple);
 }
 
 .sign-up-card .custom-btn:hover {
 	background-color: var(--secondary-purple);
+	border-color: var(--primary-purple);
 }
 
-/* .sign-up-card .login-note {
-} */
-
 .sign-up-card .login-note a {
+	font-weight: bold;
 	text-decoration: none;
 	color: var(--secondary-purple);
+}
+.sign-up-card .login-note a:hover {
+	color: var(--primary-pruple);
+}
+
+.sign-up-card .error-message {
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
+	visibility: hidden;
+}
+
+.sign-up-card .custom-form-check-input:checked {
+	border-color: var(--secondary-purple);
+	background-color: var(--primary-pruple);
 }

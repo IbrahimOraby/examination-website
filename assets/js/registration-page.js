@@ -9,41 +9,63 @@ const reEnterPassword = document.querySelector("#re-enter-password");
 
 form.addEventListener("submit", handleFormSubmit);
 
+function toggleErrorVisibility(id, show) {
+	const el = document.getElementById(id);
+	el.style.visibility = show ? "visible" : "hidden";
+}
+
 async function handleFormSubmit(e) {
 	e.preventDefault();
+
 	const nameRegEx = /^[A-Za-z]{2,}$/;
 	const emailRegEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	const passwordRegEx = /^[A-Za-z0-9]{8,}$/;
-	const userFisrtName = fname.value.trim();
+
+	const userFirstName = fname.value.trim();
 	const userLastName = lname.value.trim();
-	const userName = `${userFisrtName} ${userLastName}`;
+	const userName = `${userFirstName} ${userLastName}`;
 	const userEmail = email.value.trim();
 	const userPassword = password.value;
 	const userReEnterPassword = reEnterPassword.value;
 
-	if (!nameRegEx.test(userFisrtName)) {
-		throw new Error("should be a series of alphabetical characters.");
+	let hasError = false;
+
+	if (!nameRegEx.test(userFirstName)) {
+		toggleErrorVisibility("fname-error", true);
+		hasError = true;
+	} else {
+		toggleErrorVisibility("fname-error", false);
 	}
 
 	if (!nameRegEx.test(userLastName)) {
-		throw new Error("should be a series of alphabetical characters.");
+		toggleErrorVisibility("lname-error", true);
+		hasError = true;
+	} else {
+		toggleErrorVisibility("lname-error", false);
 	}
 
 	if (!emailRegEx.test(userEmail)) {
-		throw new Error(
-			"Oops! That doesn't look like a valid email. Try something like name@example.com."
-		);
+		toggleErrorVisibility("email-error", true);
+		hasError = true;
+	} else {
+		toggleErrorVisibility("email-error", false);
 	}
 
 	if (!passwordRegEx.test(userPassword)) {
-		throw new Error(
-			"Password must be at least 8 characters long and contain only letters and numbers."
-		);
+		toggleErrorVisibility("password-error", true);
+		hasError = true;
+	} else {
+		toggleErrorVisibility("password-error", false);
 	}
 
 	if (userPassword !== userReEnterPassword) {
-		throw new Error("It should match the password you entered.");
+		toggleErrorVisibility("re-enter-password-error", true);
+		hasError = true;
+	} else {
+		toggleErrorVisibility("re-enter-password-error", false);
 	}
+
+	if (hasError) return;
 
 	try {
 		const userCredential = await userSignup(userName, userEmail, userPassword);
@@ -52,5 +74,22 @@ async function handleFormSubmit(e) {
 		window.location.replace("../../index.html");
 	} catch (error) {
 		console.error("Signup error:", error.message);
+		const signupErrorEl = document.getElementById("sign-up-error");
+		if (error.code) {
+			signupErrorEl.style.visibility = "visible";
+			switch (error.code) {
+				case "auth/email-already-in-use":
+					signupErrorEl.textContent =
+						"This email is already registered. Please log in or use a different one.";
+					break;
+				default:
+					signupErrorEl.textContent =
+						"Something went wrong. Please try again later.";
+					break;
+			}
+		} else {
+			signupErrorEl.style.visibility = "hidden";
+			signupErrorEl.textContent = "Default";
+		}
 	}
 }
