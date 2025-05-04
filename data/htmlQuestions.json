@@ -1,0 +1,144 @@
+{
+	"questions": [
+		{
+			"id": "WEB101_Q1",
+			"examId": "WEB101",
+			"questionText": "What does HTML stand for?",
+			"options": {
+				"a": "Hyper Trainer Markup Language",
+				"b": "Hyper Text Marketing Language",
+				"c": "Hyperlink and Text Markup Language",
+				"d": "Hyper Text Markup Language"
+			},
+			"correctAnswer": "d",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB101_Q2",
+			"examId": "WEB101",
+			"questionText": "Which HTML element is used to create a hyperlink?",
+			"options": {
+				"a": "<link>",
+				"b": "<a>",
+				"c": "<hl>",
+				"d": "<hyper>"
+			},
+			"correctAnswer": "b",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB101_Q3",
+			"examId": "WEB101",
+			"questionText": "What is the correct HTML element for the largest heading?",
+			"options": {
+				"a": "<h6>",
+				"b": "<heading>",
+				"c": "<h1>",
+				"d": "<head>"
+			},
+			"correctAnswer": "c",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB101_Q4",
+			"examId": "WEB101",
+			"questionText": "Which attribute is used to specify an alternate text for an image?",
+			"options": {
+				"a": "src",
+				"b": "href",
+				"c": "alt",
+				"d": "title"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB101_Q5",
+			"examId": "WEB101",
+			"questionText": "Which HTML element is used to contain metadata about the document?",
+			"options": {
+				"a": "<body>",
+				"b": "<meta>",
+				"c": "<header>",
+				"d": "<head>"
+			},
+			"correctAnswer": "d",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB101_Q6",
+			"examId": "WEB101",
+			"questionText": "What is the correct HTML for creating a checkbox?",
+			"options": {
+				"a": "<check>",
+				"b": "<input type='check'>",
+				"c": "<checkbox>",
+				"d": "<input type='checkbox'>"
+			},
+			"correctAnswer": "d",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB101_Q7",
+			"examId": "WEB101",
+			"questionText": "Which HTML5 element is used for playing video files?",
+			"options": {
+				"a": "<media>",
+				"b": "<video>",
+				"c": "<movie>",
+				"d": "<play>"
+			},
+			"correctAnswer": "b",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB101_Q8",
+			"examId": "WEB101",
+			"questionText": "Which HTML attribute specifies where to send form-data when a form is submitted?",
+			"options": {
+				"a": "method",
+				"b": "action",
+				"c": "submit",
+				"d": "target"
+			},
+			"correctAnswer": "b",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB101_Q9",
+			"examId": "WEB101",
+			"questionText": "What is the purpose of the HTML <canvas> element?",
+			"options": {
+				"a": "To display database records",
+				"b": "To draw graphics via JavaScript",
+				"c": "To create container for images",
+				"d": "To display mathematical formulas"
+			},
+			"correctAnswer": "b",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB101_Q10",
+			"examId": "WEB101",
+			"questionText": "Which HTML element is used to specify a footer for a document or section?",
+			"options": {
+				"a": "<bottom>",
+				"b": "<footer>",
+				"c": "<foot>",
+				"d": "<section>"
+			},
+			"correctAnswer": "b",
+			"difficulty": "medium",
+			"points": 2
+		}
+	]
+}

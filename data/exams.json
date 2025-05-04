@@ -1,0 +1,25 @@
+{
+    "exams": [
+      {
+        "id": "WEB101",
+        "subjectTitle": "HTML Fundamentals",
+        "description": "Covering HTML5 syntax, semantic elements, forms, and basic web page structure",
+        "duration": 90,
+        "passingGrade": 70
+      },
+      {
+        "id": "WEB102",
+        "subjectTitle": "CSS Styling",
+        "description": "Introduction to CSS selectors, box model, flexbox, grid, and responsive design",
+        "duration": 120,
+        "passingGrade": 65
+      },
+      {
+        "id": "WEB103",
+        "subjectTitle": "JavaScript Programming",
+        "description": "Fundamentals of JavaScript including variables, functions, DOM manipulation, and ES6 features",
+        "duration": 150,
+        "passingGrade": 75
+      }
+    ]
+  }
