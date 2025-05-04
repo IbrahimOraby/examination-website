@@ -35,12 +35,16 @@ h1 {
 
 .login-btn {
     background-color: var(--primary-pruple);
+    color: var(--primary-text);
+    /* font-weight: bold; */
 
 }
 
 .login-btn:hover,
 .login-btn:active,
 .login-btn:focus {
+    color: var(--primary-text);
+    /* font-weight: bold; */
     background-color: var(--secondary-purple);
 }
 

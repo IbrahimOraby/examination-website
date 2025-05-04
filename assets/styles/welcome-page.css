@@ -1,47 +1,3 @@
-/* html,
-body {
-    height: 100%;
-    width: 100%;
-}
-
-.wlcome-page-container {
-    padding: 20px;
-    height: 100%;
-}
-
-.sidebar {
-    width: 250px;
-    max-height: 100%;
-    background-color: #6837f0e0;
-    font-weight: bold;
-    border-radius: 20px;
-}
-
-li {
-    padding: 10px;
-}
-
-
-.side-link {
-    color: aliceblue;
-    padding: 10px;
-    text-decoration: none;
-}
-
-.logo {
-    padding-top: 10px;
-    color: aliceblue;
-}
-
-
-
-.side-link:focus {
-    background-color: #7e30f2bd;
-    border-radius: 20px;
-} */
-
-
-
 html,
 body {
     height: 100%;
@@ -62,7 +18,8 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: var(--primary-pruple);
+    /* background-color: var(--primary-pruple); */
+    box-shadow: 0 4px 10px var(--primary-pruple);
     font-weight: bold;
     border-radius: 20px;
     padding: 15px 0;
@@ -75,10 +32,16 @@ li {
 
 a {
     text-decoration: none;
+    text-align: center;
+}
+
+a svg {
+    margin-bottom: 5px;
 }
 
 .side-link {
-    color: aliceblue;
+    /* color: aliceblue; */
+    color: var(--primary-pruple);
     padding: 10px;
     display: block;
     width: 100%;
@@ -87,14 +50,15 @@ a {
 
 .logo {
     padding-top: 10px;
-    color: aliceblue;
+    /* color: aliceblue; */
+    color: var(--primary-pruple);
 }
 
 .side-link:focus {
     width: 150px;
-    background-color: rgba(240, 248, 255, 0.871);
+    background-color: var(--primary-pruple);
+    color: var(--primary-text);
     border-radius: 20px;
-    color: var(--primary-pruple);
 }
 
 .toggle-btn,
@@ -126,11 +90,29 @@ h1 span {
 
 .exam-btn {
     background-color: var(--primary-pruple);
-    color: aliceblue;
+    color: var(--primary-text);
+    font-weight: bold;
 
 }
 
 .exam-btn:hover {
     background-color: var(--secondary-purple);
-    color: aliceblue;
+    color: var(--primary-text);
+}
+
+.signup-btn {
+    width: 80%;
+    background-color: var(--primary-pruple);
+    color: var(--primary-text);
+    font-weight: bold;
+    align-self: center;
+
+}
+
+.signup-btn:hover,
+.signup-btn:active,
+.signup-btn:focus {
+    background-color: var(--secondary-purple);
+    color: var(--primary-text);
+    font-weight: bold;
 }
