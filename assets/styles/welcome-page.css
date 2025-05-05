@@ -100,7 +100,7 @@ h1 span {
     color: var(--primary-text);
 }
 
-.signup-btn {
+.signout-btn {
     width: 80%;
     background-color: var(--primary-pruple);
     color: var(--primary-text);
@@ -109,9 +109,9 @@ h1 span {
 
 }
 
-.signup-btn:hover,
-.signup-btn:active,
-.signup-btn:focus {
+.signout-btn:hover,
+.signout-btn:active,
+.signout-btn:focus {
     background-color: var(--secondary-purple);
     color: var(--primary-text);
     font-weight: bold;
