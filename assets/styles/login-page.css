@@ -1,0 +1,69 @@
+@media (max-width: 768px) {
+    .login-card {
+        max-height: 50%;
+    }
+
+    .form-control {
+        width: 90%;
+    }
+}
+
+body {
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 {
+    font-weight: bold;
+    padding: 15px;
+}
+
+.login-card-container {
+    /* background-image: url(../imgs/new.jpg); */
+    background-image: url(../imgs/luke-chesser-eICUFSeirc0-unsplash.jpg);
+    background-size: cover;
+}
+
+.login-card {
+    width: 60%;
+    height: 80%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--primary-pruple);
+    background-color: #ffffff8f;
+}
+
+.login-btn {
+    background-color: var(--primary-pruple);
+
+}
+
+.login-btn:hover,
+.login-btn:active,
+.login-btn:focus {
+    background-color: var(--secondary-purple);
+}
+
+
+
+
+
+input:focus {
+    outline: none !important;
+    box-shadow: 0 0 5px var(--secondary-purple) !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.resgister {
+    padding: 10px;
+}
+
+.resgister span {
+    font-weight: bold;
+}

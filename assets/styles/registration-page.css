@@ -1,0 +1,56 @@
+.sign-up-card-container {
+	background-image: url(../imgs/luke-chesser-eICUFSeirc0-unsplash.jpg);
+	background-size: cover;
+}
+
+.sign-up-card {
+	width: 60%;
+	height: 80%;
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px var(--primary-pruple);
+	background-color: #ffffff8f;
+}
+
+.sign-up-card .sign-up-header {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.sign-up-card input:focus {
+	outline: none;
+
+	box-shadow: 0 0 5px var(--secondary-purple);
+}
+
+.sign-up-card .custom-btn {
+	background-color: var(--primary-pruple);
+	border: none;
+	/* border-color: var(--secondary-pruple); */
+}
+
+.sign-up-card .custom-btn:hover {
+	background-color: var(--secondary-purple);
+	/* border-color: var(--primary-purple); */
+}
+
+.sign-up-card .login-note a {
+	font-weight: bold;
+	text-decoration: none;
+	color: var(--secondary-purple);
+}
+.sign-up-card .login-note a:hover {
+	color: var(--primary-pruple);
+}
+
+.sign-up-card .error-message {
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
+	visibility: hidden;
+}
+
+.sign-up-card .custom-form-check-input:checked {
+	border-color: var(--secondary-purple);
+	background-color: var(--primary-pruple);
+}

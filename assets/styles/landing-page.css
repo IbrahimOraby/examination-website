@@ -1,0 +1,60 @@
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+
+    }
+
+    .oline-exam {
+        font-size: 30px;
+        text-decoration: underline;
+        text-decoration-color: var(--primary-pruple);
+        text-underline-offset: 5px;
+    }
+
+}
+
+.nav-container {
+    padding: 15px;
+}
+
+.landing-signup-btn {
+    border: 2px solid var(--primary-pruple);
+    background-color: var(--primary-pruple);
+    color: beige;
+}
+
+.buttons button:hover {
+
+    background-color: var(--secondary-purple);
+    color: beige;
+}
+
+.logo {
+    color: var(--primary-pruple);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.landing-img {
+    width: 80%;
+
+}
+
+.oline-exam {
+    font-size: 50px;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-pruple);
+    text-underline-offset: 5px;
+}
+
+.content {
+    height: 80vh
+}
+
+.landing-login-btn {
+    border: 2px solid var(--primary-pruple);
+}
+
+a {
+    text-decoration: none;
+}
