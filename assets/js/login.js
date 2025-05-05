@@ -27,7 +27,7 @@ if (form) {
     try {
       const userCredential = await userSignin(email, password);
       clearLoginErrors();
-      window.location.replace("../../pages/welcome-page.html");
+      location.href = "/pages/welcome-page.html";
     } catch (error) {
       loginError("", "Invalid email or password. Please try again.");
       // console.log(error);
