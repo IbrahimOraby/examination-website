@@ -8,6 +8,10 @@
 	color: aliceblue;
 }
 
+.btn.exam-submit-btn:active{
+	color: var(--primary-pruple);
+}
+
 .flag-btn {
 	background: none;
 	border: none;
