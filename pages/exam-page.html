@@ -41,7 +41,7 @@
 					<div class="d-flex justify-content-between mb-3">
 						<div class="d-flex align-items-center questions-indicator">
 							<p class="primary-purple fw-bold fs-5">
-								<span>Q : </span><span id="question-number">5</span>
+								<span>Q : </span><span id="question-number">1</span>
 							</p>
 						</div>
 						<div>
@@ -50,7 +50,7 @@
 					</div>
 					<div>
 						<div class="pb-2 mb-3 border-bottom">
-							<h5>What does the &lt;label&gt; tag do?</h5>
+							<h5 id="question-text"></h5>
 						</div>
 						<div>
 							<form>
@@ -105,10 +105,10 @@
 						</div>
 					</div>
 					<div class="d-flex justify-content-center gap-5">
-						<button class="primary-purple prev-btn p-0">
+						<button id="prev-btn" class="primary-purple prev-btn p-0">
 							<i class="bi bi-arrow-left fs-3"></i>
 						</button>
-						<button class="primary-purple next-btn p-0">
+						<button id="next-btn" class="primary-purple next-btn p-0">
 							<i class="bi bi-arrow-right fs-3"></i>
 						</button>
 					</div>
@@ -143,6 +143,7 @@
 			</section>
 		</div>
 		<script src="../assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+		<script type="module" src="../assets/js/firestore-questuos.js"></script>
 		<script type="module" src="../assets/js/exam-page.js"></script>
 	</body>
 </html>
