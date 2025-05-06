@@ -20,13 +20,13 @@
 .landing-signup-btn {
     border: 2px solid var(--primary-pruple);
     background-color: var(--primary-pruple);
-    color: beige;
+    color:aliceblue;
 }
 
 .buttons button:hover {
 
     background-color: var(--secondary-purple);
-    color: beige;
+    color: aliceblue;
 }
 
 .logo {
@@ -52,7 +52,8 @@
 }
 
 .landing-login-btn {
-    border: 2px solid var(--primary-pruple);
+    /* border: 2px solid var(--primary-pruple); */
+    border: 2px solid var(--secondary-purple);
 }
 
 a {
