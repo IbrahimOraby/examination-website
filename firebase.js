@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import {
   getFirestore,
@@ -12,7 +12,6 @@ import {
   addDoc,
   doc,
   setDoc,
-  getDocs,
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -43,5 +42,4 @@ export {
   setDoc,
   updateProfile,
   signInWithEmailAndPassword,
-  getDocs,
 };
