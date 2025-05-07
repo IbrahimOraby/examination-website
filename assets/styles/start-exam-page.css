@@ -1,0 +1,32 @@
+.start-exam-page-content .side-link.active-link {
+	width: 150px;
+	background-color: var(--primary-pruple);
+	color: var(--primary-text);
+	border-radius: 20px;
+}
+
+.start-exam-page-content .table-title {
+	color: var(--primary-pruple);
+}
+
+.start-exam-page-content .table-container{
+    border: 2px solid var(--secondary-purple)
+}
+
+.start-exam-page-content .start-exam-btn {
+	border: none;
+	background-color: inherit;
+}
+
+.start-exam-page-content .start-exam-btn{
+    color: var(--primary-pruple);
+}
+.start-exam-page-content .start-exam-btn:active{
+    transform: scale(0.8);
+}
+
+@media (max-width: 768px) {
+    .content.w-75{
+        width: auto !important;
+    }
+}
