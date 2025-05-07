@@ -2,7 +2,8 @@ import {
 	auth,
 	createUserWithEmailAndPassword,
 	updateProfile,
-	signInWithEmailAndPassword
+	signInWithEmailAndPassword,
+	signOut
 } from "../../firebase.js";
 import { loginError } from "../js/login.js";
 import { clearLoginErrors } from "../js/login.js";
@@ -41,5 +42,14 @@ export const userSignin = async (email, password) => {
 		throw error;
 		// loginError("", "Invalid email or password. Please try again.");
 		// console.log(error);
+	}
+};
+
+// sign out
+export const signoutUser = () => {
+	try {
+		return signOut(auth);
+	} catch (error) {
+		throw error;
 	}
 };
