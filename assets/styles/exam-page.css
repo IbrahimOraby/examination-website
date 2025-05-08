@@ -8,9 +8,11 @@
 	color: aliceblue;
 }
 
-.btn.exam-submit-btn:active{
+.btn.exam-submit-btn:active {
 	color: var(--primary-pruple);
 }
+
+
 
 .flag-btn {
 	background: none;
@@ -41,6 +43,7 @@
 	border: none;
 	background-color: inherit;
 }
+
 .flagged-questions-list li button:active {
 	transform: scale(0.9);
 }
