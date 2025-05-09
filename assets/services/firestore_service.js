@@ -1,4 +1,11 @@
-import { db, doc, setDoc, collection, getDocs } from "../../firebase.js";
+import {
+	db,
+	doc,
+	setDoc,
+	collection,
+	getDocs,
+	addDoc
+} from "../../firebase.js";
 
 export const createUser = async (userData, role) => {
 	try {
@@ -15,6 +22,30 @@ export const createUser = async (userData, role) => {
 	}
 };
 
+export const createExamsResults = async (uid, subjectId, userScore) => {
+	try {
+		const collectionRef = collection(db, "exams-results");
+		const data = await addDoc(collectionRef, {
+			uid: uid,
+			userScore: userScore,
+			subjectId: subjectId
+		});
+		return data;
+	} catch (error) {
+		console.error("Error setting exam results");
+	}
+};
+
+// const user = auth.currentUser;
+// onAuthStateChanged(auth, (user) => {
+// 	if (user) {
+// 		console.log(user.uid);
+// 		createExamsResults(user.uid, "WEB101",score);
+// 	} else {
+// 		console.log("No user signed in");
+// 	}
+// });
+
 export const getAllExams = async () => {
 	try {
 		const examsRef = collection(db, "exams");
@@ -26,7 +57,7 @@ export const getAllExams = async () => {
 				...doc.data()
 			});
 		});
-    return exams
+		return exams;
 	} catch (error) {
 		console.log("error fetching", error);
 		throw error;

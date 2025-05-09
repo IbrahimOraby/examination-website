@@ -74,7 +74,7 @@ async function handleFormSubmit(e) {
 		);
 		const userCredential = await userSignup(userName, userEmail, userPassword);
 		console.log("User signed up:", userCredential);
-		await createUser(userCredential, selectedRole.value);
+		await createUser(userCredential.user, selectedRole.value);
 		window.location.replace("../../pages/login.html");
 	} catch (error) {
 		console.error("Signup error:", error.message);
