@@ -29,6 +29,10 @@
 	transform: scale(0.9);
 }
 
+.flag-btn .bi-flag-fill{
+	color: var(--primary-pruple);
+}
+
 .questions-indicator {
 	color: var(--primary-pruple);
 }

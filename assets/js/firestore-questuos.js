@@ -12,6 +12,7 @@ class Question {
 let questionsArr = [];
 let userAnswers = [];
 let currentIndex = 0;
+const flaggedQuestionsArr = [];
 
 function shuffle(arr) {
 	for (let i = arr.length - 1; i > 0; i--) {
@@ -80,6 +81,7 @@ document.getElementById("next-btn").addEventListener("click", () => {
 	if (currentIndex < questionsArr.length - 1) {
 		++currentIndex;
 		displayQuestion(currentIndex);
+		updateFlagIcon();
 	}
 });
 
@@ -88,6 +90,7 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 	if (currentIndex > 0) {
 		--currentIndex;
 		displayQuestion(currentIndex);
+		updateFlagIcon();
 	}
 });
 
@@ -118,26 +121,33 @@ console.log(userAnswers);
 //flag-btn
 document.getElementById("flag-btn").addEventListener("click", () => {
 	const questionNumber = currentIndex + 1;
-	const flaggedQuestionsList = document.querySelector(
+	const flagIcon = document.querySelector(".bi.bi-flag, .bi.bi-flag-fill");
+	const flaggedQuestionsListEle = document.querySelector(
 		".flagged-questions-list"
 	);
-	const flagIcon = document.querySelector(".bi.bi-flag");
 
-	// check if question is already flagged
-	const existingFlaggedQuestion = Array.from(
-		flaggedQuestionsList.children
-	).find((item) => item.textContent === `Question ${questionNumber}`);
+	if (flaggedQuestionsArr.includes(currentIndex)) {
+		//unflag
+		flaggedQuestionsArr.splice(flaggedQuestionsArr.indexOf(currentIndex), 1);
+		flagIcon.classList.replace("bi-flag-fill", "bi-flag");
 
-	if (existingFlaggedQuestion) {
-		existingFlaggedQuestion.remove();
+		const itemToRemove = Array.from(flaggedQuestionsListEle.children).find(
+			(item) => item.textContent === `Question ${questionNumber}`
+		);
+
+		if (itemToRemove) itemToRemove.remove();
 	} else {
+		//flag
+		flaggedQuestionsArr.push(currentIndex);
+		flagIcon.classList.replace("bi-flag", "bi-flag-fill");
+
+		//add flag to the list ui
 		const flaggedItem = document.createElement("li");
 		const questionBtn = document.createElement("button");
-
 		questionBtn.textContent = `Question ${questionNumber}`;
 		flaggedItem.classList.add("border-bottom", "pb-2", "fw-medium");
 		flaggedItem.appendChild(questionBtn);
-		flaggedQuestionsList.appendChild(flaggedItem);
+		flaggedQuestionsListEle.appendChild(flaggedItem);
 
 		questionBtn.addEventListener("click", () => {
 			handleflaggedQuestionNav(questionNumber - 1);
@@ -148,4 +158,15 @@ document.getElementById("flag-btn").addEventListener("click", () => {
 function handleflaggedQuestionNav(curr) {
 	saveUserAnswer();
 	displayQuestion(curr);
+	updateFlagIcon();
+}
+
+//check wether question icon is filled or not on every action(next,prev,flaggedQuestions)
+function updateFlagIcon() {
+	const flagIcon = document.querySelector(".bi.bi-flag, .bi.bi-flag-fill");
+	if (flaggedQuestionsArr.includes(currentIndex)) {
+		flagIcon.classList.replace("bi-flag", "bi-flag-fill");
+	} else {
+		flagIcon.classList.replace("bi-flag-fill", "bi-flag");
+	}
 }
