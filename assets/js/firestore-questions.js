@@ -83,25 +83,25 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 	}
 });
 
-function checkAnswers() {
+export function checkAnswers() {
 	let score = 0;
 
-  for (let i = 0; i < questionsArr.length; i++) {
-    const correct = questionsArr[i].correctAnswer;
-    const userAnswer = userAnswers[i];
-    if (userAnswer === correct) {
-      score++;
-    }
-  }
-  let percent = Math.round((score / questionsArr.length) * 100);
-  // return percent;
-  localStorage.setItem("examScore", percent);
+	for (let i = 0; i < questionsArr.length; i++) {
+		const correct = questionsArr[i].correctAnswer;
+		const userAnswer = userAnswers[i];
+		if (userAnswer === correct) {
+			score++;
+		}
+	}
+	let percent = Math.round((score / questionsArr.length) * 100);
+	// return percent;
+	localStorage.setItem("examScore", percent);
 }
 
 document.querySelector(".exam-submit-btn").addEventListener("click", () => {
-  saveUserAnswer();
-  checkAnswers();
-  location.href = "/pages/final-score.html";
+	saveUserAnswer();
+	checkAnswers();
+	location.href = "/pages/final-score.html";
 });
 
 handleQuestionsData();
