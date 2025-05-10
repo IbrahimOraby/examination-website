@@ -63,3 +63,20 @@ export const getAllExams = async () => {
 		throw error;
 	}
 };
+
+export const getQuestionsData = async () => {
+	try {
+		const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
+		const questions = []; 
+		qDocs.forEach((doc) => {
+			questions.push({
+				id: doc.id,
+				...doc.data()
+			})
+			
+		});
+		return questions
+	} catch (error) {
+		console.log("error fetching questions data", error);
+	}
+};

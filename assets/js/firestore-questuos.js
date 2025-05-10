@@ -1,13 +1,5 @@
-import { db, collection, getDocs } from "../../firebase.js";
-
-class Question {
-	constructor(id, text, answers, correctAnswer) {
-		(this.id = id),
-			(this.text = text),
-			(this.answers = answers),
-			(this.correctAnswer = correctAnswer);
-	}
-}
+import { getQuestionsData } from "../services/firestore_service.js";
+import Question from "./Question.js";
 
 let questionsArr = [];
 let userAnswers = [];
@@ -21,24 +13,20 @@ function shuffle(arr) {
 	}
 }
 
-async function getQuestionsData() {
-	// const urlExamId = new URLSearchParams(window.location.search);
-	// const examId = urlExamId.get("examId");
-	const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
-	qDocs.forEach((doc) => {
-		const data = doc.data();
-		const answersObj = data.options;
+async function handleQuestionsData() {
+	const questions = await getQuestionsData();
+	questions.forEach((question) => {
+		const answersObj = question.options;
 		const answersArr = Object.entries(answersObj);
-		const question = new Question(
-			doc.id,
-			data.questionText,
+		// create the instance
+		const questionObj = new Question(
+			question.id,
+			question.questionText,
 			answersArr,
-			data.correctAnswer
+			question.correctAnswer
 		);
-		questionsArr.push(question);
-		// console.log(questionsArr);
+		questionsArr.push(questionObj);
 	});
-
 	shuffle(questionsArr);
 	displayQuestion();
 }
@@ -114,7 +102,7 @@ document.querySelector(".exam-submit-btn").addEventListener("click", () => {
 	checkAnswers();
 });
 
-getQuestionsData();
+handleQuestionsData();
 console.log(questionsArr);
 console.log(userAnswers);
 
