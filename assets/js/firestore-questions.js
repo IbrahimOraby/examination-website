@@ -1,5 +1,5 @@
 import { getQuestionsData } from "../services/firestore_service.js";
-import Question from "./Question.js";
+import { Question } from "./question-class.js";
 
 let questionsArr = [];
 let userAnswers = [];
@@ -27,6 +27,7 @@ async function handleQuestionsData() {
 		);
 		questionsArr.push(questionObj);
 	});
+
 	shuffle(questionsArr);
 	displayQuestion();
 }
@@ -85,21 +86,22 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 function checkAnswers() {
 	let score = 0;
 
-	for (let i = 0; i < questionsArr.length; i++) {
-		const correct = questionsArr[i].correctAnswer;
-		const userAnswer = userAnswers[i];
-		if (userAnswer === correct) {
-			score++;
-		}
-	}
-
-	console.log(`Your score: ${score} out of ${questionsArr.length}`);
-	alert(`Your score: ${score} out of ${questionsArr.length}`);
+  for (let i = 0; i < questionsArr.length; i++) {
+    const correct = questionsArr[i].correctAnswer;
+    const userAnswer = userAnswers[i];
+    if (userAnswer === correct) {
+      score++;
+    }
+  }
+  let percent = Math.round((score / questionsArr.length) * 100);
+  // return percent;
+  localStorage.setItem("examScore", percent);
 }
 
 document.querySelector(".exam-submit-btn").addEventListener("click", () => {
-	saveUserAnswer();
-	checkAnswers();
+  saveUserAnswer();
+  checkAnswers();
+  location.href = "/pages/final-score.html";
 });
 
 handleQuestionsData();
