@@ -1,19 +1,10 @@
 import { db, collection, getDocs } from "../../firebase.js";
-
-class Question {
-  constructor(id, text, answers, correctAnswer) {
-    (this.id = id),
-      (this.text = text),
-      (this.answers = answers),
-      (this.correctAnswer = correctAnswer);
-  }
-}
-
+import { Question } from "./question-class.js";
 let questionsArr = [];
 let userAnswers = [];
 let currentIndex = 0;
 
-function shuffle(arr) {
+export function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -21,9 +12,12 @@ function shuffle(arr) {
 }
 
 async function getQuestionsData() {
-  // const urlExamId = new URLSearchParams(window.location.search);
-  // const examId = urlExamId.get("examId");
-  const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
+  const urlExamId = new URLSearchParams(window.location.search);
+  console.log(urlExamId);
+  const examId = urlExamId.get("id");
+  console.log(examId);
+  const qDocs = await getDocs(collection(db, "exams", examId, "question"));
+
   qDocs.forEach((doc) => {
     const data = doc.data();
     const answersObj = data.options;
@@ -42,7 +36,7 @@ async function getQuestionsData() {
   displayQuestion();
 }
 
-function displayQuestion() {
+export function displayQuestion() {
   const Q = questionsArr[currentIndex];
   document.getElementById("question-text").textContent = Q.text;
 
@@ -89,7 +83,7 @@ document.getElementById("prev-btn").addEventListener("click", () => {
   }
 });
 
-function checkAnswers() {
+export function checkAnswers() {
   let score = 0;
 
   for (let i = 0; i < questionsArr.length; i++) {
@@ -99,14 +93,15 @@ function checkAnswers() {
       score++;
     }
   }
-
-  console.log(`Your score: ${score} out of ${questionsArr.length}`);
-  alert(`Your score: ${score} out of ${questionsArr.length}`);
+  let percent = Math.round((score / questionsArr.length) * 100);
+  // return percent;
+  localStorage.setItem("examScore", percent);
 }
 
 document.querySelector(".exam-submit-btn").addEventListener("click", () => {
   saveUserAnswer();
   checkAnswers();
+  location.href = "/pages/final-score.html";
 });
 
 getQuestionsData();
