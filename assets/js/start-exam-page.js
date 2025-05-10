@@ -4,6 +4,19 @@ import { signoutUser } from "../services/auth_service.js";
 
 const sigoutBtn = document.getElementById("signout-btn");
 
+function showLoading(){
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = `
+        <tr class="loading-row">
+            <td colspan="4">
+			<div class='d-flex align-items-center justify-content-center my-1'>	
+                <div class="loader"></div>
+			</div>
+            </td>
+        </tr>
+    `;
+};
+
 async function handleSignout() {
 	try {
 		await signoutUser();
@@ -30,6 +43,7 @@ async function loadExams() {
 
 const loadExamsTableData = async () => {
 	try {
+		showLoading()
 		const examsArr = await loadExams();
 		const tbody = document.querySelector("tbody");
 
