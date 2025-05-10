@@ -1,14 +1,5 @@
 import { db, collection, getDocs } from "../../firebase.js";
-
-class Question {
-	constructor(id, text, answers, correctAnswer) {
-		(this.id = id),
-			(this.text = text),
-			(this.answers = answers),
-			(this.correctAnswer = correctAnswer);
-	}
-}
-
+import { Question } from "./question-class.js";
 let questionsArr = [];
 let userAnswers = [];
 let currentIndex = 0;
@@ -22,22 +13,25 @@ function shuffle(arr) {
 }
 
 async function getQuestionsData() {
-	// const urlExamId = new URLSearchParams(window.location.search);
-	// const examId = urlExamId.get("examId");
-	const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
-	qDocs.forEach((doc) => {
-		const data = doc.data();
-		const answersObj = data.options;
-		const answersArr = Object.entries(answersObj);
-		const question = new Question(
-			doc.id,
-			data.questionText,
-			answersArr,
-			data.correctAnswer
-		);
-		questionsArr.push(question);
-		// console.log(questionsArr);
-	});
+  const urlExamId = new URLSearchParams(window.location.search);
+  console.log(urlExamId);
+  const examId = urlExamId.get("id");
+  console.log(examId);
+  const qDocs = await getDocs(collection(db, "exams", examId, "question"));
+
+  qDocs.forEach((doc) => {
+    const data = doc.data();
+    const answersObj = data.options;
+    const answersArr = Object.entries(answersObj);
+    const question = new Question(
+      doc.id,
+      data.questionText,
+      answersArr,
+      data.correctAnswer
+    );
+    questionsArr.push(question);
+    // console.log(questionsArr);
+  });
 
 	shuffle(questionsArr);
 	displayQuestion();
@@ -97,21 +91,22 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 function checkAnswers() {
 	let score = 0;
 
-	for (let i = 0; i < questionsArr.length; i++) {
-		const correct = questionsArr[i].correctAnswer;
-		const userAnswer = userAnswers[i];
-		if (userAnswer === correct) {
-			score++;
-		}
-	}
-
-	console.log(`Your score: ${score} out of ${questionsArr.length}`);
-	alert(`Your score: ${score} out of ${questionsArr.length}`);
+  for (let i = 0; i < questionsArr.length; i++) {
+    const correct = questionsArr[i].correctAnswer;
+    const userAnswer = userAnswers[i];
+    if (userAnswer === correct) {
+      score++;
+    }
+  }
+  let percent = Math.round((score / questionsArr.length) * 100);
+  // return percent;
+  localStorage.setItem("examScore", percent);
 }
 
 document.querySelector(".exam-submit-btn").addEventListener("click", () => {
-	saveUserAnswer();
-	checkAnswers();
+  saveUserAnswer();
+  checkAnswers();
+  location.href = "/pages/final-score.html";
 });
 
 getQuestionsData();
