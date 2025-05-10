@@ -49,13 +49,20 @@ a svg {
     text-align: center;
 }
 
+.side-link.side-link-active{
+    width: 150px;
+    background-color: var(--primary-pruple);
+    color: var(--primary-text);
+    border-radius: 20px;
+}
+
 .logo {
     padding-top: 10px;
     /* color: aliceblue; */
     color: var(--primary-pruple);
 }
 
-.side-link:focus {
+.side-link:hover {
     width: 150px;
     background-color: var(--primary-pruple);
     color: var(--primary-text);

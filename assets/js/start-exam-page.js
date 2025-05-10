@@ -1,5 +1,30 @@
 import { getAllExams } from "../services/firestore_service.js";
 import Exam from "./Exam.js";
+import { signoutUser } from "../services/auth_service.js";
+
+const sigoutBtn = document.getElementById("signout-btn");
+
+function showLoading(){
+    const tbody = document.querySelector("tbody");
+    tbody.innerHTML = `
+        <tr class="loading-row">
+            <td colspan="4">
+			<div class='d-flex align-items-center justify-content-center my-1'>	
+                <div class="loader"></div>
+			</div>
+            </td>
+        </tr>
+    `;
+};
+
+async function handleSignout() {
+	try {
+		await signoutUser();
+		window.location.replace("../../index.html");
+	} catch (error) {
+		console.log("Error while logging out", error);
+	}
+}
 
 // create instances of the class Exam from the firestore exams data
 async function loadExams() {
@@ -18,6 +43,7 @@ async function loadExams() {
 
 const loadExamsTableData = async () => {
 	try {
+		showLoading()
 		const examsArr = await loadExams();
 		const tbody = document.querySelector("tbody");
 
@@ -63,10 +89,10 @@ const loadExamsTableData = async () => {
 	}
 };
 
+// redirect to exam page
 function startExam(examId) {
-    // console.log('Starting exam:', examId);
-    // redirect to exam page
-    window.location.href = `./exam-page.html?id=${examId}`;
+	window.location.href = `./exam-page.html?id=${examId}`;
 }
 
 window.addEventListener("load", loadExamsTableData);
+sigoutBtn.addEventListener("click", handleSignout);
