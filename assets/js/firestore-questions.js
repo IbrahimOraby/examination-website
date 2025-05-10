@@ -1,5 +1,6 @@
-import { db, collection, getDocs } from "../../firebase.js";
+import { getQuestionsData } from "../services/firestore_service.js";
 import { Question } from "./question-class.js";
+
 let questionsArr = [];
 let userAnswers = [];
 let currentIndex = 0;
@@ -12,26 +13,20 @@ function shuffle(arr) {
 	}
 }
 
-async function getQuestionsData() {
-  const urlExamId = new URLSearchParams(window.location.search);
-  console.log(urlExamId);
-  const examId = urlExamId.get("id");
-  console.log(examId);
-  const qDocs = await getDocs(collection(db, "exams", examId, "question"));
-
-  qDocs.forEach((doc) => {
-    const data = doc.data();
-    const answersObj = data.options;
-    const answersArr = Object.entries(answersObj);
-    const question = new Question(
-      doc.id,
-      data.questionText,
-      answersArr,
-      data.correctAnswer
-    );
-    questionsArr.push(question);
-    // console.log(questionsArr);
-  });
+async function handleQuestionsData() {
+	const questions = await getQuestionsData();
+	questions.forEach((question) => {
+		const answersObj = question.options;
+		const answersArr = Object.entries(answersObj);
+		// create the instance
+		const questionObj = new Question(
+			question.id,
+			question.questionText,
+			answersArr,
+			question.correctAnswer
+		);
+		questionsArr.push(questionObj);
+	});
 
 	shuffle(questionsArr);
 	displayQuestion();
@@ -109,7 +104,7 @@ document.querySelector(".exam-submit-btn").addEventListener("click", () => {
   location.href = "/pages/final-score.html";
 });
 
-getQuestionsData();
+handleQuestionsData();
 console.log(questionsArr);
 console.log(userAnswers);
 
