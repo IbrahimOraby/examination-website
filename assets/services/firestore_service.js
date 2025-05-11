@@ -4,22 +4,24 @@ import {
 	setDoc,
 	collection,
 	getDocs,
-	addDoc
+	addDoc,
+	query,
+	where
 } from "../../firebase.js";
 
 export const createUser = async (userData, role) => {
-  try {
-    const docRef = doc(db, "users", userData.uid);
-    const data = await setDoc(docRef, {
-      email: userData.email,
-      displayName: userData.displayName,
-      uid: userData.uid,
-      role: role,
-    });
-    return data;
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
+	try {
+		const docRef = doc(db, "users", userData.uid);
+		const data = await setDoc(docRef, {
+			email: userData.email,
+			displayName: userData.displayName,
+			uid: userData.uid,
+			role: role
+		});
+		return data;
+	} catch (e) {
+		console.error("Error adding document: ", e);
+	}
 };
 
 export const createExamsResults = async (uid, subjectId, userScore) => {
@@ -67,16 +69,32 @@ export const getAllExams = async () => {
 export const getQuestionsData = async () => {
 	try {
 		const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
-		const questions = []; 
+		const questions = [];
 		qDocs.forEach((doc) => {
 			questions.push({
 				id: doc.id,
 				...doc.data()
-			})
-			
+			});
 		});
-		return questions
+		return questions;
 	} catch (error) {
 		console.log("error fetching questions data", error);
+	}
+};
+
+export const getExamsResultsData = async (uid) => {
+	try {
+		const q = query(collection(db, "exams-results"), where("uid", "==", uid));
+		const querySnapshot = await getDocs(q);
+		const examsResults = []
+		querySnapshot.forEach((doc) => {
+			examsResults.push({
+				id: doc.id,
+				...doc.data()
+			});
+		});
+		return examsResults
+	} catch (error) {
+		console.log("Error getting exams result", error);
 	}
 };
