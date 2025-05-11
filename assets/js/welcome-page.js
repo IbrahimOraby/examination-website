@@ -13,8 +13,8 @@ onAuthStateChanged(auth, (user) => {
 		userNameSpan.textContent = firstName;
 
 		//set user id in localstorage
-		console.log(user.uid) //xgYIDPIwzrdJu516SMUhkEI1em42
 		localStorage.setItem("uid", user.uid);
+		localStorage.setItem("userName", user.displayName);
 	} else {
 		console.log("No user signed in");
 	}

@@ -6,7 +6,7 @@ function formatTime(unit) {
   return unit < 10 ? "0" + unit : unit;
 }
 
-var x = setInterval(function () {
+var x = setInterval( async function () {
   var now = new Date().getTime();
 
   var distance = countDownDate - now;
@@ -26,6 +26,6 @@ var x = setInterval(function () {
   if (distance < 0) {
     // clearInterval(x);
     // document.getElementById("timer").innerHTML = "EXPIRED";
-    checkAnswers();
+    await checkAnswers();
   }
 }, 1000);

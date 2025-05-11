@@ -4,6 +4,7 @@ export default async function handleSignout() {
 	try {
 		await signoutUser();
 		localStorage.removeItem("uid");
+		localStorage.removeItem("userName");
 		window.location.replace("../../index.html");
 	} catch (error) {
 		console.log("Error while logging out", error);
