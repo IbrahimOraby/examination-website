@@ -1,0 +1,154 @@
+{
+	"questions": [
+		{
+			"id": "WEB102_Q1",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "What does CSS stand for?",
+			"options": {
+				"a": "Computer Style Sheets",
+				"b": "Creative Style Sheets",
+				"c": "Cascading Style Sheets",
+				"d": "Colorful Style Sheets"
+			},
+			"correctAnswer": "c",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB102_Q2",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "Which HTML attribute is used to define inline styles?",
+			"options": {
+				"a": "class",
+				"b": "font",
+				"c": "styles",
+				"d": "style"
+			},
+			"correctAnswer": "d",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB102_Q3",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "How do you select an element with id 'header' in CSS?",
+			"options": {
+				"a": ".header",
+				"b": "#header",
+				"c": "*header",
+				"d": "header"
+			},
+			"correctAnswer": "b",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB102_Q4",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "Which property is used to change the background color?",
+			"options": {
+				"a": "bgcolor",
+				"b": "color",
+				"c": "background-color",
+				"d": "bg-color"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB102_Q5",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "How do you make each word in a text start with a capital letter?",
+			"options": {
+				"a": "text-transform: capitalize",
+				"b": "text-transform: uppercase",
+				"c": "text-style: capital",
+				"d": "You can't do that with CSS"
+			},
+			"correctAnswer": "a",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB102_Q6",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "Which property controls the space between elements' border and inner content?",
+			"options": {
+				"a": "margin",
+				"b": "spacing",
+				"c": "padding",
+				"d": "border-spacing"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB102_Q7",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "Which flexbox property aligns items vertically in a container?",
+			"options": {
+				"a": "align-content",
+				"b": "justify-content",
+				"c": "flex-direction",
+				"d": "align-items"
+			},
+			"correctAnswer": "d",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB102_Q8",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "What does the CSS Grid property 'grid-template-areas' do?",
+			"options": {
+				"a": "Defines named grid areas",
+				"b": "Specifies the gap between grid items",
+				"c": "Controls the auto-placement of grid items",
+				"d": "Sets the size of the grid columns"
+			},
+			"correctAnswer": "a",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB102_Q9",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "Which CSS selector matches all <p> elements that are direct children of a <div>?",
+			"options": {
+				"a": "div p",
+				"b": "div > p",
+				"c": "div + p",
+				"d": "div.p"
+			},
+			"correctAnswer": "b",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB102_Q10",
+			"examId": "WEB102",
+			"subjectTitle": "CSS Styling",
+			"questionText": "Which media query feature tests whether the device supports hover capabilities?",
+			"options": {
+				"a": "hover: available",
+				"b": "pointer: fine",
+				"c": "hover: hover",
+				"d": "any-hover: hover"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		}
+	]
+}

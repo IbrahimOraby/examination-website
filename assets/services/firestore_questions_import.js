@@ -2,7 +2,7 @@ import { collection, doc, setDoc, db } from "../../firebase.js";
 
 async function getData() {
 	try {
-		const response = await fetch("../../data/htmlQuestions.json");
+		const response = await fetch("../../data/jsQuestions.json");
 		if (!response.ok) {
 			throw new Error(`Response status: ${response.status}`);
 		}
@@ -17,13 +17,14 @@ const questionsData = await getData();
 console.log(questionsData);
 
 const createQuestionsSubCollection = async (questions) => {
-	const subRef = doc(db, "exams", "WEB101");
+	const subRef = doc(db, "exams", "WEB103");
 	const examRef = collection(subRef, "question");
 
 	questions.map(async (question) => {
 		await setDoc(doc(examRef, question.id), {
 			examId: question.examId,
 			id: question.id,
+			subjectTitle: question.subjectTitle,
 			questionText: question.questionText,
 			options: question.options,
             correctAnswer: question.correctAnswer,

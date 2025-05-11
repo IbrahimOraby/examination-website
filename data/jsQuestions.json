@@ -1,0 +1,154 @@
+{
+	"questions": [
+		{
+			"id": "WEB103_Q1",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "What is the correct syntax for referring to an external script called 'script.js'?",
+			"options": {
+				"a": "<script href='script.js'>",
+				"b": "<script name='script.js'>",
+				"c": "<script src='script.js'>",
+				"d": "<script file='script.js'>"
+			},
+			"correctAnswer": "c",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB103_Q2",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "How do you write 'Hello World' in an alert box?",
+			"options": {
+				"a": "alertBox('Hello World');",
+				"b": "msg('Hello World');",
+				"c": "alert('Hello World');",
+				"d": "msgBox('Hello World');"
+			},
+			"correctAnswer": "c",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB103_Q3",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "How do you create a function in JavaScript?",
+			"options": {
+				"a": "function = myFunction()",
+				"b": "function myFunction()",
+				"c": "function:myFunction()",
+				"d": "create myFunction()"
+			},
+			"correctAnswer": "b",
+			"difficulty": "easy",
+			"points": 1
+		},
+		{
+			"id": "WEB103_Q4",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "Which operator is used to assign a value to a variable?",
+			"options": {
+				"a": "*",
+				"b": "-",
+				"c": "=",
+				"d": "x"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB103_Q5",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "What will the following code return? Boolean(10 > 9)",
+			"options": {
+				"a": "NaN",
+				"b": "false",
+				"c": "true",
+				"d": "undefined"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB103_Q6",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "What is the correct way to write a JavaScript array?",
+			"options": {
+				"a": "var colors = (1:'red', 2:'green', 3:'blue')",
+				"b": "var colors = ['red', 'green', 'blue']",
+				"c": "var colors = 'red', 'green', 'blue'",
+				"d": "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')"
+			},
+			"correctAnswer": "b",
+			"difficulty": "medium",
+			"points": 2
+		},
+		{
+			"id": "WEB103_Q7",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "What does the 'this' keyword refer to in JavaScript?",
+			"options": {
+				"a": "The previous object",
+				"b": "The current object",
+				"c": "The parent object",
+				"d": "The global object"
+			},
+			"correctAnswer": "b",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB103_Q8",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "What is the output of: console.log(typeof [])?",
+			"options": {
+				"a": "array",
+				"b": "object",
+				"c": "list",
+				"d": "undefined"
+			},
+			"correctAnswer": "b",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB103_Q9",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "Which method is used to add one or more elements to the end of an array?",
+			"options": {
+				"a": "push()",
+				"b": "join()",
+				"c": "pop()",
+				"d": "slice()"
+			},
+			"correctAnswer": "a",
+			"difficulty": "hard",
+			"points": 3
+		},
+		{
+			"id": "WEB103_Q10",
+			"examId": "WEB103",
+			"subjectTitle": "JavaScript Programming",
+			"questionText": "What is the ES6 feature that allows you to write function parameters with default values?",
+			"options": {
+				"a": "Arrow functions",
+				"b": "Rest parameters",
+				"c": "Default parameters",
+				"d": "Spread operator"
+			},
+			"correctAnswer": "c",
+			"difficulty": "medium",
+			"points": 2
+		}
+	]
+}
