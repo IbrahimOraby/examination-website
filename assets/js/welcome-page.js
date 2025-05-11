@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from "../../firebase.js";
-import { signoutUser } from "../services/auth_service.js";
+import handleSignout from "./handleSingout.js";
 const auth = getAuth();
 const user = auth.currentUser;
 const userNameSpan = document.getElementById("userName");
@@ -11,18 +11,13 @@ onAuthStateChanged(auth, (user) => {
 		const fullName = user.displayName;
 		const firstName = fullName.split(" ")[0];
 		userNameSpan.textContent = firstName;
+
+		//set user id in localstorage
+		console.log(user.uid) //xgYIDPIwzrdJu516SMUhkEI1em42
+		localStorage.setItem("uid", user.uid);
 	} else {
 		console.log("No user signed in");
 	}
 });
 
 sigoutBtn.addEventListener("click", handleSignout);
-
-async function handleSignout() {
-	try {
-		await signoutUser();
-		window.location.replace("../../index.html");
-	} catch (error) {
-		console.log("Error while logging out", error);
-	}
-}
