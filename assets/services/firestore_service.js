@@ -24,29 +24,27 @@ export const createUser = async (userData, role) => {
 	}
 };
 
-export const createExamsResults = async (uid, subjectId, userScore) => {
+export const createExamsResults = async (
+	uid,
+	userName,
+	subjectId,
+	subjectTitle,
+	userScore
+) => {
 	try {
 		const collectionRef = collection(db, "exams-results");
 		const data = await addDoc(collectionRef, {
 			uid: uid,
+			userName: userName,
 			userScore: userScore,
-			subjectId: subjectId
+			subjectId: subjectId,
+			subjectTitle: subjectTitle
 		});
 		return data;
 	} catch (error) {
 		console.error("Error setting exam results");
 	}
 };
-
-// const user = auth.currentUser;
-// onAuthStateChanged(auth, (user) => {
-// 	if (user) {
-// 		console.log(user.uid);
-// 		createExamsResults(user.uid, "WEB101",score);
-// 	} else {
-// 		console.log("No user signed in");
-// 	}
-// });
 
 export const getAllExams = async () => {
 	try {
@@ -66,9 +64,9 @@ export const getAllExams = async () => {
 	}
 };
 
-export const getQuestionsData = async () => {
+export const getQuestionsData = async (subjectId) => {
 	try {
-		const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
+		const qDocs = await getDocs(collection(db, "exams", subjectId, "question"));
 		const questions = [];
 		qDocs.forEach((doc) => {
 			questions.push({
@@ -86,14 +84,14 @@ export const getExamsResultsData = async (uid) => {
 	try {
 		const q = query(collection(db, "exams-results"), where("uid", "==", uid));
 		const querySnapshot = await getDocs(q);
-		const examsResults = []
+		const examsResults = [];
 		querySnapshot.forEach((doc) => {
 			examsResults.push({
 				id: doc.id,
 				...doc.data()
 			});
 		});
-		return examsResults
+		return examsResults;
 	} catch (error) {
 		console.log("Error getting exams result", error);
 	}

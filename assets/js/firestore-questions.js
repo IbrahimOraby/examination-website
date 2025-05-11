@@ -1,10 +1,16 @@
-import { getQuestionsData } from "../services/firestore_service.js";
+import {
+	getQuestionsData,
+	createExamsResults
+} from "../services/firestore_service.js";
 import { Question } from "./question-class.js";
 
 let questionsArr = [];
 let userAnswers = [];
 let currentIndex = 0;
 const flaggedQuestionsArr = [];
+const params = new URLSearchParams(document.location.search);
+const subjectId = params.get("id");
+const subjectTitle = params.get("title");
 
 function shuffle(arr) {
 	for (let i = arr.length - 1; i > 0; i--) {
@@ -14,7 +20,7 @@ function shuffle(arr) {
 }
 
 async function handleQuestionsData() {
-	const questions = await getQuestionsData();
+	const questions = await getQuestionsData(subjectId);
 	questions.forEach((question) => {
 		const answersObj = question.options;
 		const answersArr = Object.entries(answersObj);
@@ -83,7 +89,7 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 	}
 });
 
-export function checkAnswers() {
+export async function checkAnswers() {
 	let score = 0;
 
 	for (let i = 0; i < questionsArr.length; i++) {
@@ -94,15 +100,25 @@ export function checkAnswers() {
 		}
 	}
 	let percent = Math.round((score / questionsArr.length) * 100);
+	const uid = localStorage.getItem("uid");
+	const userName = localStorage.getItem("userName");
+	console.log(uid, userName);
 	// return percent;
 	localStorage.setItem("examScore", percent);
+	try {
+		await createExamsResults(uid, userName, subjectId, subjectTitle, percent);
+	} catch (err) {
+		console.log(err);
+	}
+	window.location.replace("/pages/final-score.html");
 }
 
-document.querySelector(".exam-submit-btn").addEventListener("click", () => {
-	saveUserAnswer();
-	checkAnswers();
-	location.href = "/pages/final-score.html";
-});
+document
+	.querySelector(".exam-submit-btn")
+	.addEventListener("click", async () => {
+		saveUserAnswer();
+		await checkAnswers();
+	});
 
 handleQuestionsData();
 console.log(questionsArr);
