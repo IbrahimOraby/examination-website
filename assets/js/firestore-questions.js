@@ -14,7 +14,10 @@ function shuffle(arr) {
 }
 
 async function handleQuestionsData() {
-	const questions = await getQuestionsData();
+	const params = new URLSearchParams(document.location.search);
+	let id = params.get("id");
+	console.log(id)
+	const questions = await getQuestionsData(id);
 	questions.forEach((question) => {
 		const answersObj = question.options;
 		const answersArr = Object.entries(answersObj);

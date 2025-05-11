@@ -66,9 +66,9 @@ export const getAllExams = async () => {
 	}
 };
 
-export const getQuestionsData = async () => {
+export const getQuestionsData = async (id) => {
 	try {
-		const qDocs = await getDocs(collection(db, "exams", "WEB101", "question"));
+		const qDocs = await getDocs(collection(db, "exams", id, "question"));
 		const questions = [];
 		qDocs.forEach((doc) => {
 			questions.push({
