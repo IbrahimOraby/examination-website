@@ -44,12 +44,7 @@ async function loadExamsResults(uid) {
 }
 
 async function createTable(headers, data) {
-	scoresContentDiv.innerHTML = 
-	`<div class='d-flex justify-content-center'>
-		<div class="loader"></div>
-	</div>`;
-	await new Promise((resolve) => setTimeout(resolve, 500));
-	scoresContentDiv.innerHTML = "";
+	document.querySelector('.loader').classList.add('d-none')
 
 	// create title
 	const h1 = document.createElement("h1");

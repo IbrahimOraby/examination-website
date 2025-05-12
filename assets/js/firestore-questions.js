@@ -2,7 +2,7 @@ import {
   getQuestionsData,
   createExamsResults,
 } from "../services/firestore_service.js";
-import { Question } from "./Classes/Question";
+import { Question } from "./Classes/Question.js";
 
 let questionsArr = [];
 let userAnswers = [];
