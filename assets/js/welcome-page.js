@@ -13,11 +13,8 @@ async function initUser() {
 		localStorage.setItem("userRole", user.role);
 		const userRole = localStorage.getItem("userRole");
 
-		content.innerHTML = `<div class="loader"></div>`;
-		await new Promise((resolve) => setTimeout(resolve, 500));
-
 		if (userRole === "teacher") {
-			content.innerHTML = "";
+			document.querySelector(".loader").classList.add("d-none");
 			content.innerHTML = `
 			<h1>Welcome <span id="userName">${firstName}</span>,</h1>
    			<p>You can see your students scores from here.</p>
@@ -25,7 +22,7 @@ async function initUser() {
     		<a class="btn exam-btn" href="./scores-page.html">Scores</a>
 			`;
 		} else if (userRole === "student") {
-			content.innerHTML = "";
+			document.querySelector(".loader").classList.add("d-none");
 			content.innerHTML = `
 			<h1>Welcome <span id="userName">${firstName}</span>,</h1>
    			<p>Are you ready to take your exam?</p>

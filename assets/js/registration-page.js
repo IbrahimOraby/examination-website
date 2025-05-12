@@ -7,8 +7,11 @@ const lname = document.querySelector("#lname");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const reEnterPassword = document.querySelector("#re-enter-password");
+const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-form.addEventListener("submit", handleFormSubmit);
+if (isLoggedIn === "true") {
+	window.location.replace("../../pages/welcome-page.html");
+}
 
 function toggleErrorVisibility(id, show) {
 	const el = document.getElementById(id);
@@ -97,3 +100,5 @@ async function handleFormSubmit(e) {
 		}
 	}
 }
+
+form.addEventListener("submit", handleFormSubmit);

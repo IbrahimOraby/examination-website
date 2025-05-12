@@ -6,6 +6,7 @@ export default async function handleSignout() {
 		localStorage.removeItem("uid");
 		localStorage.removeItem("userName");
 		localStorage.removeItem("userRole");
+		localStorage.removeItem("isLoggedIn");
 
 		window.location.replace("../../index.html");
 	} catch (error) {
