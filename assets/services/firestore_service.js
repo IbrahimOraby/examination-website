@@ -6,7 +6,8 @@ import {
 	getDocs,
 	addDoc,
 	query,
-	where
+	where,
+	serverTimestamp
 } from "../../firebase.js";
 
 export const createUser = async (userData, role) => {
@@ -38,7 +39,8 @@ export const createExamsResults = async (
 			userName: userName,
 			userScore: userScore,
 			subjectId: subjectId,
-			subjectTitle: subjectTitle
+			subjectTitle: subjectTitle,
+			createdAt: serverTimestamp()
 		});
 		return data;
 	} catch (error) {
@@ -94,5 +96,38 @@ export const getExamsResultsData = async (uid) => {
 		return examsResults;
 	} catch (error) {
 		console.log("Error getting exams result", error);
+	}
+};
+
+export const getAllExamsResults = async () => {
+	try {
+		const examsResultsCollection = collection(db, "exams-results");
+		const querySnapshot = await getDocs(examsResultsCollection);
+		const examsResults = [];
+		querySnapshot.forEach((doc) => {
+			examsResults.push({
+				id: doc.id,
+				...doc.data()
+			});
+		});
+		return examsResults;
+	} catch (error) {
+		console.log("error fetching", error);
+		throw error;
+	}
+};
+
+export const getUserData = async (uid) => {
+	try {
+		const q = query(collection(db, "users"), where("uid", "==", uid));
+		const querySnapshot = await getDocs(q);
+		const userDoc = querySnapshot.docs[0];
+		return {
+			id: userDoc.id,
+			...userDoc.data()
+		};
+		return querySnapshot;
+	} catch (error) {
+		console.log("Error getting user data", error);
 	}
 };

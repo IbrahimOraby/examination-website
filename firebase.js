@@ -15,7 +15,8 @@ import {
 	setDoc,
 	getDocs,
 	query,
-	where
+	where,
+	serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -49,5 +50,6 @@ export {
 	signOut,
 	getDocs,
 	query,
-	where
+	where,
+	serverTimestamp
 };
