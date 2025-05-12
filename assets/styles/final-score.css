@@ -1,0 +1,53 @@
+html,
+body {
+    width: 100;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.score-card {
+    text-align: center;
+    width: 50%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px var(--primary-pruple);
+    background-color: #ffffff8f;
+}
+
+.score-img {
+    text-align: center;
+}
+
+.score-img img {
+    width: 40%;
+}
+
+.score-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.score-home-btn {
+    background-color: var(--primary-pruple);
+    color: var(--primary-text);
+    font-weight: bold;
+    border: none;
+    margin: 20px;
+}
+
+.score-home-btn:hover,
+.score-home-btn:active,
+.score-home-btn:focus {
+    color: var(--primary-text);
+    font-weight: bold;
+    background-color: var(--secondary-purple);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-text);
+}

@@ -1,0 +1,90 @@
+.exam-submit-btn {
+	background-color: var(--primary-pruple);
+	color: aliceblue;
+}
+
+.exam-submit-btn:hover {
+	background-color: var(--secondary-purple);
+	color: aliceblue;
+}
+
+.btn.exam-submit-btn:active {
+	color: var(--primary-pruple);
+}
+
+
+
+.flag-btn {
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.flag-btn i {
+	color: inherit;
+}
+
+.flag-btn:active {
+	transform: scale(0.9);
+}
+
+.flag-btn .bi-flag-fill{
+	color: var(--primary-pruple);
+}
+
+.questions-indicator {
+	color: var(--primary-pruple);
+}
+
+.flagged-questions-tile-container {
+	color: var(--primary-pruple);
+	border: 1px solid var(--primary-pruple);
+}
+
+.flagged-questions-list li button {
+	font-size: 0.9rem;
+	border: none;
+	background-color: inherit;
+}
+
+.flagged-questions-list li button:active {
+	transform: scale(0.9);
+}
+
+.custom-form-check-input:checked {
+	border-color: var(--secondary-purple);
+	background-color: var(--primary-pruple);
+}
+
+.prev-btn,
+.next-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.prev-btn i,
+.next-btn i {
+	color: inherit;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+	color: var(--secondary-purple);
+}
+
+.prev-btn:active,
+.next-btn:active {
+	transform: scale(0.9);
+	color: var(--secondary-purple);
+}
+
+/* general */
+.primary-purple {
+	color: var(--primary-pruple);
+}
+
+h6 {
+	margin: 0;
+}

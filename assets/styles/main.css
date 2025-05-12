@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&display=swap");
+
+body {
+	font-family: "Quicksand", sans-serif;
+}
+
+:root {
+	--primary-pruple: #6837f0;
+	--secondary-purple: #7e30f2;
+	--primary-pruple-trans: #6837f0be;
+	--secondary-purple-trans: #7e30f2b5;
+	--main-paragraph: black;
+	--secondary-paragraph: #f2f5f4;
+	--primary-text: aliceblue;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+	margin: 0;
+}
+
+/* general */
+.loader {
+	border: 8px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 8px solid var(--primary-pruple-trans);
+	width: 60px;
+	height: 60px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
