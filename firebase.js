@@ -13,7 +13,9 @@ import {
 	addDoc,
 	doc,
 	setDoc,
-	getDocs
+	getDocs,
+	query,
+	where
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -45,5 +47,7 @@ export {
 	updateProfile,
 	signInWithEmailAndPassword,
 	signOut,
-	getDocs
+	getDocs,
+	query,
+	where
 };

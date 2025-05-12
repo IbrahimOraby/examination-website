@@ -1,12 +1,12 @@
 import { getAllExams } from "../services/firestore_service.js";
 import Exam from "./Exam.js";
-import { signoutUser } from "../services/auth_service.js";
+import handleSignout from "./handleSingout.js";
 
 const sigoutBtn = document.getElementById("signout-btn");
 
-function showLoading(){
-    const tbody = document.querySelector("tbody");
-    tbody.innerHTML = `
+function showLoading() {
+	const tbody = document.querySelector("tbody");
+	tbody.innerHTML = `
         <tr class="loading-row">
             <td colspan="4">
 			<div class='d-flex align-items-center justify-content-center my-1'>	
@@ -15,15 +15,6 @@ function showLoading(){
             </td>
         </tr>
     `;
-};
-
-async function handleSignout() {
-	try {
-		await signoutUser();
-		window.location.replace("../../index.html");
-	} catch (error) {
-		console.log("Error while logging out", error);
-	}
 }
 
 // create instances of the class Exam from the firestore exams data
@@ -43,7 +34,7 @@ async function loadExams() {
 
 const loadExamsTableData = async () => {
 	try {
-		showLoading()
+		showLoading();
 		const examsArr = await loadExams();
 		const tbody = document.querySelector("tbody");
 
@@ -70,7 +61,8 @@ const loadExamsTableData = async () => {
 
 			// Time
 			const timeTd = document.createElement("td");
-			timeTd.textContent = `${exam.duration} mins`;
+			// timeTd.textContent = `${exam.duration} mins`;
+			timeTd.textContent = `25 mins`;
 			tr.appendChild(timeTd);
 
 			// Start
@@ -78,7 +70,9 @@ const loadExamsTableData = async () => {
 			const startButton = document.createElement("button");
 			startButton.textContent = "▶";
 			startButton.className = "start-exam-btn";
-			startButton.addEventListener("click", () => startExam(exam.id));
+			startButton.addEventListener("click", () =>
+				startExam(exam.id, exam.subjectTitle)
+			);
 			startTd.appendChild(startButton);
 			tr.appendChild(startTd);
 
@@ -90,8 +84,10 @@ const loadExamsTableData = async () => {
 };
 
 // redirect to exam page
-function startExam(examId) {
-	window.location.href = `./exam-page.html?id=${examId}`;
+function startExam(subjectId, subjectTitle) {
+	window.location.href = `./exam-page.html?id=${subjectId}&title=${encodeURIComponent(
+		subjectTitle
+	)}`;
 }
 
 window.addEventListener("load", loadExamsTableData);
