@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Examify - Login</title>
+		<link
+			rel="stylesheet"
+			href="../assets/libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
+		/>
+		<link rel="stylesheet" href="../assets/styles/main.css" />
+		<link rel="stylesheet" href="../assets/styles/login-page.css" />
+	</head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Examantion - Login Page</title>
-    <link rel="stylesheet" href="../assets/libs/bootstrap-5.3.5-dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/styles/main.css" />
-    <link rel="stylesheet" href="../assets/styles/login-page.css" />
-</head>
+	<body>
+		<div
+			class="login-card-container d-flex justify-content-center align-items-center vh-100 bg-light"
+		>
+			<div class="login-card card justify-content-center">
+				<form
+					id="login-form"
+					class="d-flex flex-column justify-content-center align-items-center flex-wrap"
+				>
+					<h1>Login</h1>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label"
+							>Email address</label
+						>
+						<input
+							type="text"
+							class="form-control"
+							id="inputEmail1"
+							aria-describedby="emailHelp"
+							required
+						/>
+						<div class="error-message" id="email-error"></div>
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label"
+							>Password</label
+						>
+						<input
+							type="password"
+							class="form-control"
+							id="inputPassword1"
+							required
+						/>
+						<div class="error-message" id="password-error"></div>
+					</div>
 
-<body>
-    <div class="login-card-container  d-flex justify-content-center align-items-center vh-100 bg-light ">
-        <div class="login-card card justify-content-center">
-            <form id="login-form" class="d-flex flex-column justify-content-center align-items-center flex-wrap">
-                <h1>Login</h1>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="inputEmail1" aria-describedby="emailHelp" required>
-                    <div class="error-message" id="email-error"></div>
+					<button type="submit" id="login-btn" class="login-btn btn">
+						Login
+					</button>
+					<div class="mb-3 resgister d-flex justify-content-center">
+						<div id="emailHelp" class="form-text">
+							Don't have an account ?
+							<a class="register-link" href="registration-page.html"><span>Register</span></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword1" required>
-                    <div class="error-message" id="password-error"></div>
-                </div>
-
-                <button type="submit" id="login-btn" class="login-btn btn ">Login</button>
-                <div class="mb-3 resgister d-flex justify-content-center">
-                    <div id="emailHelp" class="form-text">don't have an account ? <a
-                            href="registration-page.html"><span>register</span></a>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- <div>Login</div> -->
-    <script src="../assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../assets/js/index.js"></script>
-    <script type="module" src="../assets/js/login.js"></script>
-</body>
-
+		<!-- <div>Login</div> -->
+		<script src="../assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+		<script type="module" src="../assets/js/index.js"></script>
+		<script type="module" src="../assets/js/login.js"></script>
+	</body>
 </html>
