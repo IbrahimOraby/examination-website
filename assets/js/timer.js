@@ -1,6 +1,6 @@
 import { checkAnswers } from "./firestore-questions.js";
 
-var countDownDate = new Date().getTime() + 25 * 60 * 1000;
+var countDownDate = new Date().getTime() + 1 * 60 * 1000;
 
 function formatTime(unit) {
   return unit < 10 ? "0" + unit : unit;
@@ -24,8 +24,8 @@ var x = setInterval(function () {
     formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
 
   if (distance < 0) {
-    // clearInterval(x);
-    // document.getElementById("timer").innerHTML = "EXPIRED";
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "EXPIRED";
     checkAnswers();
   }
 }, 1000);
