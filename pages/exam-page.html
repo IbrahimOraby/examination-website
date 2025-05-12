@@ -1,130 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Exam</title>
-		<link
-			rel="stylesheet"
-			href="../assets/libs/bootstrap-5.3.5-dist/css/bootstrap.min.css"
-		/>
-		<!-- bootstrap icons cdn -->
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css"
-		/>
-		<!-- end		 -->
-		<link rel="stylesheet" href="../assets/styles/main.css" />
-		<link rel="stylesheet" href="../assets/styles/exam-page.css" />
-	</head>
 
-	<body>
-		<!-- <div class="d-flex justify-content-center">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Exam</title>
+	<link rel="stylesheet" href="../assets/libs/bootstrap-5.3.5-dist/css/bootstrap.min.css" />
+	<!-- bootstrap icons cdn -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css" />
+	<!-- end		 -->
+	<link rel="stylesheet" href="../assets/styles/main.css" />
+	<link rel="stylesheet" href="../assets/styles/exam-page.css" />
+</head>
+
+<body>
+	<!-- <div class="d-flex justify-content-center">
 		<div class="spinner-border" role="status">
 			<span class="loader sr-only"></span>
 		</div>
 	</div> -->
 
-		<div class="container-fluid mt-3 container-md">
-			<section class="row justify-content-between">
-				<div class="col-8 d-flex align-items-center justify-content-center">
-					<div class="d-flex align-items-center gap-1">
-						<span class="">
-							<i class="bi bi-stopwatch fs-3"></i>
-						</span>
-						<span>
-							<p id="timer" class="fw-bold">00:00:00</p>
-						</span>
-					</div>
+	<div class="container-fluid mt-3 container-md">
+		<section class="row justify-content-between">
+			<div class="col-8 d-flex align-items-center justify-content-center">
+				<div class="d-flex align-items-center gap-1">
+					<span class="">
+						<i class="bi bi-stopwatch fs-3"></i>
+					</span>
+					<span>
+						<p id="timer" class="fw-bold">00:00:00</p>
+					</span>
 				</div>
-				<div class="col-3 d-flex align-items-center justify-content-center">
-					<button class="btn exam-submit-btn px-4 rounded-4">Submit</button>
-				</div>
-			</section>
+			</div>
+			<div class="col-3 d-flex align-items-center justify-content-center">
+				<button class="btn exam-submit-btn px-4 rounded-4">Submit</button>
+			</div>
+		</section>
 
-			<section
-				class="row justify-content-between mt-4 questions-section mx-3 mx-md-0"
-			>
-				<!-- Question left panel section -->
-				<div class="col-md-8 col-12 my-3 mt-md-0 border rounded-3 p-3">
-					<div class="d-flex justify-content-between mb-3">
-						<div class="d-flex align-items-center questions-indicator">
-							<p class="primary-purple fw-bold fs-5">
-								<span>Q : </span><span id="question-number">1</span>
-							</p>
-						</div>
-						<div>
-							<button class="flag-btn" id="flag-btn">
-								<i class="bi bi-flag fs-5"></i>
-							</button>
-						</div>
+		<section class="row justify-content-between mt-4 questions-section mx-3 mx-md-0">
+			<!-- Question left panel section -->
+			<div class="col-md-8 col-12 my-3 mt-md-0 border rounded-3 p-3">
+				<div class="d-flex justify-content-between mb-3">
+					<div class="d-flex align-items-center questions-indicator">
+						<p class="primary-purple fw-bold fs-5">
+							<span>Q : </span><span id="question-number">1</span>
+						</p>
 					</div>
 					<div>
-						<div class="pb-2 mb-3 border-bottom">
-							<h5 id="question-text"></h5>
-						</div>
-						<div>
-							<form>
-								<div class="form-check mb-3">
-									<input
-										class="form-check-input custom-form-check-input"
-										type="radio"
-										name="answer"
-										id="option1"
-									/>
-									<label class="form-check-label" for="option1"></label>
-								</div>
-
-								<div class="form-check mb-3">
-									<input
-										class="form-check-input custom-form-check-input"
-										type="radio"
-										name="answer"
-										id="option2"
-									/>
-									<label class="form-check-label" for="option2"></label>
-								</div>
-
-								<div class="form-check mb-3">
-									<input
-										class="form-check-input custom-form-check-input"
-										type="radio"
-										name="answer"
-										id="option3"
-									/>
-									<label class="form-check-label" for="option3"></label>
-								</div>
-
-								<div class="form-check mb-3">
-									<input
-										class="form-check-input custom-form-check-input"
-										type="radio"
-										name="answer"
-										id="option4"
-									/>
-									<label class="form-check-label" for="option4"></label>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="d-flex justify-content-center gap-5">
-						<button id="prev-btn" class="primary-purple prev-btn p-0">
-							<i class="bi bi-arrow-left fs-3"></i>
-						</button>
-						<button id="next-btn" class="primary-purple next-btn p-0">
-							<i class="bi bi-arrow-right fs-3"></i>
+						<button class="flag-btn" id="flag-btn">
+							<i class="bi bi-flag fs-5"></i>
 						</button>
 					</div>
 				</div>
-				<!-- end -->
-				<!-- Question right panel section  (flagged questions) -->
-				<div class="col-md-3 col-12 my-3 mt-md-0 border rounded-3 p-2">
-					<div class="d-flex flex-column">
-						<div class="flagged-questions-tile-container p-2 mb-3 rounded-3">
-							<h6 class="text-center fw-bold">Flagged Questions</h6>
-						</div>
-						<ul class="flagged-questions-list list-unstyled mb-0">
-							<!-- <li class="border-bottom pb-2 fw-medium">
+				<div>
+					<div class="pb-2 mb-3 border-bottom">
+						<h5 id="question-text"></h5>
+					</div>
+					<div>
+						<form>
+							<div class="form-check mb-3">
+								<input class="form-check-input custom-form-check-input" type="radio" name="answer"
+									id="option1" />
+								<label class="form-check-label" for="option1"></label>
+							</div>
+
+							<div class="form-check mb-3">
+								<input class="form-check-input custom-form-check-input" type="radio" name="answer"
+									id="option2" />
+								<label class="form-check-label" for="option2"></label>
+							</div>
+
+							<div class="form-check mb-3">
+								<input class="form-check-input custom-form-check-input" type="radio" name="answer"
+									id="option3" />
+								<label class="form-check-label" for="option3"></label>
+							</div>
+
+							<div class="form-check mb-3">
+								<input class="form-check-input custom-form-check-input" type="radio" name="answer"
+									id="option4" />
+								<label class="form-check-label" for="option4"></label>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center gap-5">
+					<button id="prev-btn" class="primary-purple prev-btn p-0">
+						<i class="bi bi-arrow-left fs-3"></i>
+					</button>
+					<button id="next-btn" class="primary-purple next-btn p-0">
+						<i class="bi bi-arrow-right fs-3"></i>
+					</button>
+				</div>
+			</div>
+			<!-- end -->
+			<!-- Question right panel section  (flagged questions) -->
+			<div class="col-md-3 col-12 my-3 mt-md-0 border rounded-3 p-2">
+				<div class="d-flex flex-column">
+					<div class="flagged-questions-tile-container p-2 mb-3 rounded-3">
+						<h6 class="text-center fw-bold">Flagged Questions</h6>
+					</div>
+					<ul class="flagged-questions-list list-unstyled mb-0">
+						<!-- <li class="border-bottom pb-2 fw-medium">
 							<button>Question 1</button>
 						</li>
 						<li class="border-bottom pb-2 fw-medium">
@@ -138,16 +115,18 @@
 						</li>
 						<li class="border-bottom pb-2 fw-medium">
 							<button>Question 5</button>
-						</li> -->
-						</ul>
-					</div>
+						</li>
+					</ul>
 				</div>
-				<!-- end -->
-			</section>
-		</div>
-		<script src="../assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-		<script type="module" src="../assets/js/firestore-questions.js"></script>
-		<script type="module" src="../assets/js/exam-page.js"></script>
-		<script type="module" src="../assets/js/timer.js"></script>
-	</body>
+			</div>
+			end -->
+		</section>
+	</div>
+	<script src="../assets/libs/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
+	<script type="module" src="../assets/js/exam-page.js"></script>
+	<script type="module" src="../assets/js/final-score.js"></script>
+	<script type="module" src="../assets/js/timer.js"></script>
+	<script type="module" src="../assets/js/firestore-questions.js"></script>
+</body>
+
 </html>
