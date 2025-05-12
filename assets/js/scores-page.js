@@ -3,32 +3,13 @@ import {
 	getAllExamsResults
 } from "../services/firestore_service.js";
 import handleSignout from "./handleSingout.js";
+import ExamResult from "./Classes/ExamResult.js";
 
 const uid = localStorage.getItem("uid");
 const userRole = localStorage.getItem("userRole");
 
 const scoresContentDiv = document.getElementById("scores-content");
 const sigoutBtn = document.getElementById("signout-btn");
-
-class ExamResult {
-	constructor(
-		id,
-		uid,
-		userScore,
-		subjectId,
-		subjectTitle,
-		userName,
-		createdAt
-	) {
-		this.id = id;
-		this.uid = uid;
-		this.userName = userName;
-		this.createdAt = createdAt;
-		this.userScore = userScore;
-		this.subjectId = subjectId;
-		this.subjectTitle = subjectTitle;
-	}
-}
 
 async function loadExamsResults(uid) {
 	if (uid) {

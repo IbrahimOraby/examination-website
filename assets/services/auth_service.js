@@ -5,8 +5,6 @@ import {
 	signInWithEmailAndPassword,
 	signOut
 } from "../../firebase.js";
-import { loginError } from "../js/login.js";
-import { clearLoginErrors } from "../js/login.js";
 
 // Sign up
 export const userSignup = async (userName, email, password) => {

@@ -2,8 +2,14 @@ import { userSignin } from "../services/auth_service.js";
 
 const form = document.getElementById("login-form");
 const loginbtn = document.getElementById("login-btn");
+const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-export function loginError(Emsg, Pmsg) {
+if (isLoggedIn === "true") {
+	window.location.replace("../../pages/welcome-page.html");
+}
+
+
+function loginError(Emsg, Pmsg) {
 	const emailError = document.getElementById("email-error");
 	const passwordError = document.getElementById("password-error");
 	emailError.textContent = Emsg;
@@ -12,7 +18,7 @@ export function loginError(Emsg, Pmsg) {
 	passwordError.style.display = Pmsg ? "block" : "none";
 }
 
-export function clearLoginErrors() {
+function clearLoginErrors() {
 	const emailError = document.getElementById("email-error");
 	const passwordError = document.getElementById("password-error");
 
@@ -32,10 +38,10 @@ if (form) {
 			//set user id & user name in localstorage
 			localStorage.setItem("uid", user.uid);
 			localStorage.setItem("userName", user.displayName);
-			
+			localStorage.setItem('isLoggedIn', 'true');
 
 			clearLoginErrors();
-			window.location.replace("/pages/welcome-page.html");
+			window.location.replace("../../pages/welcome-page.html");
 			// location.href = "/pages/welcome-page.html";
 		} catch (error) {
 			loginError("", "Invalid email or password. Please try again.");
@@ -43,3 +49,4 @@ if (form) {
 		}
 	});
 }
+

@@ -1,5 +1,5 @@
 import { getAllExams } from "../services/firestore_service.js";
-import Exam from "./Exam.js";
+import Exam from "./Classes/Exam.js";
 import handleSignout from "./handleSingout.js";
 
 const sigoutBtn = document.getElementById("signout-btn");
