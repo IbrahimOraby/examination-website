@@ -1,21 +1,42 @@
 import handleSignout from "./handleSingout.js";
+import { getUserData } from "../services/firestore_service.js";
 
-const userNameSpan = document.getElementById("userName");
+const uid = localStorage.getItem("uid");
+const userName = localStorage.getItem("userName");
+const firstName = userName.split(" ")[0];
+const content = document.querySelector(".content");
 const sigoutBtn = document.getElementById("signout-btn");
 
-onAuthStateChanged(auth, (user) => {
-	if (user) {
-		// User is signed in
-		const fullName = user.displayName;
-		const firstName = fullName.split(" ")[0];
-		userNameSpan.textContent = firstName;
+async function initUser() {
+	try {
+		const user = await getUserData(uid);
+		localStorage.setItem("userRole", user.role);
+		const userRole = localStorage.getItem("userRole");
 
-		//set user id & user name in localstorage
-		localStorage.setItem("uid", user.uid);
-		localStorage.setItem("userName", user.displayName);
-	} else {
-		console.log("No user signed in");
+		content.innerHTML = `<div class="loader"></div>`;
+		await new Promise((resolve) => setTimeout(resolve, 500));
+
+		if (userRole === "teacher") {
+			content.innerHTML = "";
+			content.innerHTML = `
+			<h1>Welcome <span id="userName">${firstName}</span>,</h1>
+   			<p>You can see your students scores from here.</p>
+    		<hr />
+    		<a class="btn exam-btn" href="./scores-page.html">Scores</a>
+			`;
+		} else if (userRole === "student") {
+			content.innerHTML = "";
+			content.innerHTML = `
+			<h1>Welcome <span id="userName">${firstName}</span>,</h1>
+   			<p>Are you ready to take your exam?</p>
+    		<hr />
+    		<a class="btn exam-btn" href="./start-exam-page.html">Exams</a>
+			`;
+		}
+	} catch (error) {
+		console.log("Error rendering", error);
 	}
-});
+}
+initUser();
 
 sigoutBtn.addEventListener("click", handleSignout);

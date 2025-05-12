@@ -96,3 +96,18 @@ export const getExamsResultsData = async (uid) => {
 		console.log("Error getting exams result", error);
 	}
 };
+
+export const getUserData = async (uid) => {
+	try {
+		const q = query(collection(db, "users"), where("uid", "==", uid));
+		const querySnapshot = await getDocs(q);
+		const userDoc = querySnapshot.docs[0];
+		return {
+			id: userDoc.id,
+			...userDoc.data()
+		};
+		return querySnapshot;
+	} catch (error) {
+		console.log("Error getting user data", error);
+	}
+};
