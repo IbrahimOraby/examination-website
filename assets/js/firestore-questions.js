@@ -1,6 +1,6 @@
 import {
-	getQuestionsData,
-	createExamsResults
+  getQuestionsData,
+  createExamsResults,
 } from "../services/firestore_service.js";
 import { Question } from "./question-class.js";
 
@@ -11,6 +11,7 @@ const flaggedQuestionsArr = [];
 const params = new URLSearchParams(document.location.search);
 const subjectId = params.get("id");
 const subjectTitle = params.get("title");
+const duration = params.get("duration");
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -20,25 +21,27 @@ function shuffle(arr) {
 }
 
 async function handleQuestionsData() {
-	const questions = await getQuestionsData(subjectId);
-	questions.forEach((question) => {
-		const answersObj = question.options;
-		const answersArr = Object.entries(answersObj);
-		// create the instance
-		const questionObj = new Question(
-			question.id,
-			question.questionText,
-			answersArr,
-			question.correctAnswer
-		);
-		questionsArr.push(questionObj);
-	});
+  const questions = await getQuestionsData(subjectId);
+  questions.forEach((question) => {
+    const answersObj = question.options;
+    const answersArr = Object.entries(answersObj);
+    // create the instance
+    const questionObj = new Question(
+      question.id,
+      question.questionText,
+      answersArr,
+      question.correctAnswer
+    );
+    questionsArr.push(questionObj);
+  });
 
   shuffle(questionsArr);
   displayQuestion();
 }
 
 function displayQuestion(curr = 0) {
+  currentIndex = curr;
+
   const Q = questionsArr[curr];
   document.getElementById("question-text").textContent = Q.text;
 
@@ -58,8 +61,9 @@ function displayQuestion(curr = 0) {
   });
 
   //display the question number and update the currentIndex to match it
-  document.getElementById("question-number").textContent = curr + 1;
-  currentIndex = curr;
+  document.getElementById("question-number").textContent = `${curr + 1} of ${
+    questionsArr.length
+  }`;
 }
 
 function saveUserAnswer() {
@@ -90,35 +94,35 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 });
 
 export async function checkAnswers() {
-	let score = 0;
+  let score = 0;
 
-	for (let i = 0; i < questionsArr.length; i++) {
-		const correct = questionsArr[i].correctAnswer;
-		const userAnswer = userAnswers[i];
-		if (userAnswer === correct) {
-			score++;
-		}
-	}
-	let percent = Math.round((score / questionsArr.length) * 100);
-	const uid = localStorage.getItem("uid");
-	const userName = localStorage.getItem("userName");
-	console.log(uid, userName);
-	// return percent;
-	localStorage.setItem("examScore", percent);
-	try {
-		await createExamsResults(uid, userName, subjectId, subjectTitle, percent);
-	} catch (err) {
-		console.log(err);
-	}
-	window.location.replace("/pages/final-score.html");
+  for (let i = 0; i < questionsArr.length; i++) {
+    const correct = questionsArr[i].correctAnswer;
+    const userAnswer = userAnswers[i];
+    if (userAnswer === correct) {
+      score++;
+    }
+  }
+  let percent = Math.round((score / questionsArr.length) * 100);
+  const uid = localStorage.getItem("uid");
+  const userName = localStorage.getItem("userName");
+  console.log(uid, userName);
+  // return percent;
+  localStorage.setItem("examScore", percent);
+  try {
+    await createExamsResults(uid, userName, subjectId, subjectTitle, percent);
+  } catch (err) {
+    console.log(err);
+  }
+  window.location.replace("/pages/final-score.html");
 }
 
 document
-	.querySelector(".exam-submit-btn")
-	.addEventListener("click", async () => {
-		saveUserAnswer();
-		await checkAnswers();
-	});
+  .querySelector(".exam-submit-btn")
+  .addEventListener("click", async () => {
+    saveUserAnswer();
+    await checkAnswers();
+  });
 
 handleQuestionsData();
 console.log(questionsArr);
