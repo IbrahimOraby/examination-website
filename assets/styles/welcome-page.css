@@ -12,6 +12,8 @@ body {
     flex-direction: column;
 } */
 
+
+
 .welcome-page-container {
     padding: 20px;
     height: 100%;
@@ -49,7 +51,7 @@ a svg {
     text-align: center;
 }
 
-.side-link.side-link-active{
+.side-link.side-link-active {
     width: 150px;
     background-color: var(--primary-pruple);
     color: var(--primary-text);
@@ -108,18 +110,17 @@ h1 span {
     color: var(--primary-text);
 }
 
-.signup-btn {
+.signout-btn {
     width: 80%;
     background-color: var(--primary-pruple);
     color: var(--primary-text);
     font-weight: bold;
-    align-self: center;
 
 }
 
-.signup-btn:hover,
-.signup-btn:active,
-.signup-btn:focus {
+.signout-btn:hover,
+.signout-btn:active,
+.sigout-btn:focus {
     background-color: var(--secondary-purple);
     color: var(--primary-text);
     font-weight: bold;
